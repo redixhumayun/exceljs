@@ -9234,13 +9234,15 @@ function (_BaseXform) {
     value: function reconcile(model, options) {
       var _this4 = this;
 
-      model.anchors.forEach(function (anchor) {
-        if (anchor.br) {
-          _this4.map['xdr:twoCellAnchor'].reconcile(anchor, options);
-        } else {
-          _this4.map['xdr:oneCellAnchor'].reconcile(anchor, options);
-        }
-      });
+      if (model && model.anchors) {
+        model.anchors.forEach(function (anchor) {
+          if (anchor.br) {
+            _this4.map['xdr:twoCellAnchor'].reconcile(anchor, options);
+          } else {
+            _this4.map['xdr:oneCellAnchor'].reconcile(anchor, options);
+          }
+        });
+      }
     }
   }, {
     key: "tag",
